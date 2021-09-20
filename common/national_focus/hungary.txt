@@ -1,0 +1,209 @@
+focus_tree = {
+	id = hungarian_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = HUN
+		}
+	}
+
+	default = no
+
+	focus = {
+		id = HUN_political_situation
+		icon = GFX_goal_anschluss
+		cost = 10
+		x = 6
+		y = 0
+		completion_reward = {
+			add_political_power = 150
+		}
+	}
+
+	#	Neutrality tree
+
+	focus = {
+		id = HUN_the_vacant_throne
+		icon = GFX_focus_hun_elect_a_king
+		cost = 10
+		x = 0
+		y = 1
+		relative_position_id = HUN_political_situation
+
+		prerequisite = {
+			focus = HUN_political_situation
+		}
+
+		mutually_exclusive = {
+			focus = HUN_the_seeds_of_the_revolution
+			focus = HUN_rise_of_the_hungarists
+		}
+
+		completion_reward = {
+			add_ideas = HUN_vacant_throne
+		}
+	}
+
+	#	Communist tree
+
+	focus = {
+		id = HUN_reform_the_kmp
+		icon = GFX_goal_support_communism
+		cost = 10
+		x = -2
+		y = 1
+		relative_position_id = HUN_political_situation
+		
+		prerequisite = {
+			focus = HUN_political_situation
+		}
+
+		mutually_exclusive = {
+			focus = HUN_rise_of_the_hungarists
+			focus = HUN_the_vacant_throne
+		}
+
+		completion_reward = {
+			add_popularity = {
+				ideology = communism
+				popularity = 0.1
+			}
+		}
+	}
+
+	focus = {
+		id = HUN_disempower_the_hungarists
+		icon = GFX_focus_spr_the_anti_fascist_workers_revolution
+		cost = 10
+		x = -2
+		y = 1
+		relative_position_id = HUN_reform_the_kmp
+		prerequisite = {
+			focus = HUN_reform_the_kmp
+		}
+
+		completion_reward = {
+			add_ideas = HUN_political_dispute
+		}
+	}
+
+	focus = {
+		id = HUN_hold_party_congress
+		icon = GFX_focus_generic_soviet_politics
+		cost = 10
+		x = 0
+		y = 1
+		relative_position_id = HUN_disempower_the_hungarists
+		prerequisite = {
+			focus = HUN_disempower_the_hungarists
+		}
+
+		completion_reward = {
+			country_event = {
+				id = hungary.1
+ 			}
+		}
+	}
+
+	focus = {
+		id = HUN_prepare_for_civil_war
+		icon = GFX_goal_generic_small_arms
+		cost = 10
+		x = -1
+		y = 1
+		relative_position_id = HUN_hold_party_congress
+		
+		mutually_exclusive = {
+			focus = HUN_plant_the_seeds_of_the_revolution
+		}
+
+		prerequisite = {
+			focus = HUN_hold_party_congress
+		}
+
+		completion_reward = {
+			add_stability = -0.2
+		}
+	}
+
+	focus = {
+		id = HUN_wake_the_workers
+		icon = GFX_focus_YUG_pan_slavic_congress
+		cost = 10
+		x = 0
+		y = 1
+		relative_position_id = HUN_prepare_for_civil_war
+
+		available = {
+			NOT = {
+				has_country_flag = socialist_plans
+			}
+		}
+
+		prerequisite = {
+			focus = HUN_prepare_for_civil_war
+		}
+
+		completion_reward = {
+			start_civil_war = {
+				ideology = communism
+				size = 0.8
+				capital = 43
+				states = { 43 }
+			}
+		}
+	}
+
+	focus = {
+		id = HUN_plant_the_seeds_of_the_revolution
+		icon = GFX_focus_generic_join_comintern
+		cost = 10
+		x = 1
+		y = 1
+		relative_position_id = HUN_hold_party_congress
+		
+		mutually_exclusive = {
+			focus = HUN_prepare_for_civil_war
+		}
+
+		available = {
+			NOT = {
+				has_country_flag = anarchist_plans
+			}
+		}
+		
+		prerequisite = {
+			focus = HUN_hold_party_congress
+		}
+
+		completion_reward = {
+			add_ideas = HUN_seeds_of_the_revolution
+		}
+	}
+
+	#	Fascist tree
+
+	focus = {
+		id = HUN_rise_of_the_hungarists
+		icon = GFX_goal_support_fascism
+		cost = 10
+		x = 2
+		y = 1
+		relative_position_id = HUN_political_situation
+		prerequisite = {
+			focus = HUN_political_situation
+		}
+
+		mutually_exclusive = {
+			focus = HUN_the_seeds_of_the_revolution
+			focus = HUN_the_vacant_throne
+		}
+
+		completion_reward = {
+			add_ideas = HUN_rising_hungarists
+		}
+	}
+}

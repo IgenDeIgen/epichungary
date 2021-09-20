@@ -1,0 +1,45 @@
+add_namespace = hungary
+
+#	Communist politics
+# KMP party congress
+country_event = {
+	id = hungary.1
+	title = hungary.1.t
+	desc = hungary.1.d
+	picture = GFX_report_event_generic_rally_3
+
+	is_triggered_only = yes
+
+	option = {	# Anarchist approach
+		name = hungary.1.a
+		
+		set_party_name = {
+			ideology = communism
+			long_name = HUN_anarchist_party_long
+			name = HUN_anarchist_party
+		} 
+
+		retire_ideology_leader = communism
+
+		set_country_flag = anarchist_plans
+	}
+
+	option = {	# Stalinist approach
+		name = hungary.1.b
+	}
+
+	option = {	# Socialist approach
+		name = hungary.1.c
+		
+		set_party_name = {
+			ideology = communism
+			long_name = HUN_socialist_party_long
+			name = HUN_socialist_party
+		} 
+
+		retire_ideology_leader = communism
+		retire_ideology_leader = communism
+
+		set_country_flag = socialist_plans
+	}
+}
