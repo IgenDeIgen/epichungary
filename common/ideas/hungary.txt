@@ -69,5 +69,53 @@ ideas = {
 			}
 			picture = generic_fascism_drift_bonus
 		}
+
+		HUN_industry_reforms_idea = {
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				add_tech_bonus = {
+					bonus = 0.5
+					uses = 1
+					category = industry
+				}
+				add_tech_bonus = {
+					bonus = 0.5
+					uses = 1
+					category = construction_tech
+				}
+			}
+			picture = man_five_year_plan_industry
+		}
+
+		HUN_construction_boost_idea = {
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				add_tech_bonus = {
+					bonus = 0.5
+					uses = 1
+					category = industry
+				}
+				add_tech_bonus = {
+					bonus = 0.5
+					uses = 1
+					category = construction_tech
+				}
+
+				production_speed_infrastructure_factor = 0.2
+				production_speed_industrial_complex_factor = 0.2
+				production_speed_arms_factory_factor = 0.2
+			}
+			picture = man_five_year_plan_industry
+		}
 	}
 }

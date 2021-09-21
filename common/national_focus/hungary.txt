@@ -12,6 +12,10 @@ focus_tree = {
 
 	default = no
 
+	#########################################
+	#		Politics tree					#
+	#########################################
+
 	focus = {
 		id = HUN_political_situation
 		icon = GFX_goal_anschluss
@@ -205,6 +209,114 @@ focus_tree = {
 
 		completion_reward = {
 			add_ideas = HUN_rising_hungarists
+		}
+	}
+
+	#########################################
+	#		Industry tree					#
+	#########################################
+
+	focus = {
+		id = HUN_industry_reforms
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10
+		x = 16
+		y = 0
+
+		completion_reward = {
+			add_ideas = HUN_industry_reforms_idea
+		}
+	}
+
+	focus = {
+		id = HUN_construction_boost
+		icon = GFX_goal_generic_construction
+		cost = 10
+		x = -2
+		y = 1
+		relative_position_id = HUN_industry_reforms
+
+		prerequisite = {
+			focus = HUN_industry_reforms
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = HUN_industry_reforms_idea
+				add_idea = HUN_construction_boost_idea
+			}
+		}
+	}
+
+	focus = {
+		id = HUN_factory_construction_I
+		icon = GFX_focus_generic_industry_1
+		cost = 10
+		x = 0
+		y = 1
+		relative_position_id = HUN_industry_reforms
+
+		prerequisite = {
+			focus = HUN_industry_reforms
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+
+	focus = {
+		id = HUN_factory_construction_II
+		icon = GFX_focus_generic_industry_2
+		cost = 10
+		x = 0
+		y = 2
+		relative_position_id = HUN_industry_reforms
+
+		prerequisite = {
+			focus = HUN_factory_construction_I
+		}
+
+		prerequisite = {
+			focus = HUN_construction_boost
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+
+	focus = {
+		id = HUN_factory_construction_III
+		icon = GFX_focus_generic_industry_3
+		cost = 10
+		x = 0
+		y = 3
+		relative_position_id = HUN_industry_reforms
+
+		prerequisite = {
+			focus = HUN_factory_construction_II
+		}
+		completion_reward = {
+			random_owned_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+			}
 		}
 	}
 }
