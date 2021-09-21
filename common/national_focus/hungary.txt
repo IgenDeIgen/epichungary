@@ -38,7 +38,7 @@ focus_tree = {
 		}
 
 		mutually_exclusive = {
-			focus = HUN_the_seeds_of_the_revolution
+			focus = HUN_reform_the_kmp
 			focus = HUN_rise_of_the_hungarists
 		}
 
@@ -149,10 +149,9 @@ focus_tree = {
 
 		completion_reward = {
 			start_civil_war = {
-				ideology = communism
-				size = 0.8
-				capital = 43
-				states = { 43 }
+				ruling_party = communism
+				ideology = ROOT
+				size = 0.3
 			}
 		}
 	}
@@ -167,12 +166,6 @@ focus_tree = {
 		
 		mutually_exclusive = {
 			focus = HUN_prepare_for_civil_war
-		}
-
-		available = {
-			NOT = {
-				has_country_flag = anarchist_plans
-			}
 		}
 		
 		prerequisite = {
@@ -198,7 +191,7 @@ focus_tree = {
 		}
 
 		mutually_exclusive = {
-			focus = HUN_the_seeds_of_the_revolution
+			focus = HUN_reform_the_kmp
 			focus = HUN_the_vacant_throne
 		}
 
