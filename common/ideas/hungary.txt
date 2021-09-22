@@ -83,11 +83,6 @@ ideas = {
 					uses = 1
 					category = industry
 				}
-				add_tech_bonus = {
-					bonus = 0.5
-					uses = 1
-					category = construction_tech
-				}
 			}
 			picture = man_five_year_plan_industry
 		}
@@ -105,11 +100,6 @@ ideas = {
 					bonus = 0.5
 					uses = 1
 					category = industry
-				}
-				add_tech_bonus = {
-					bonus = 0.5
-					uses = 1
-					category = construction_tech
 				}
 
 				production_speed_infrastructure_factor = 0.2
