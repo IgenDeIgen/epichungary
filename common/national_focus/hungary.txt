@@ -136,6 +136,10 @@ focus_tree = {
 
 		completion_reward = {
 			add_stability = -0.2
+			swap_ideas = {
+				remove_idea = HUN_political_dispute
+				add_idea = HUN_political_dispute_2
+			}
 		}
 	}
 
@@ -159,6 +163,33 @@ focus_tree = {
 				ideology = ROOT
 				size = 0.3
 			}
+		}
+	}
+
+	focus = {
+		id = HUN_plant_the_seeds_of_the_revolution
+		icon = GFX_focus_generic_join_comintern
+		cost = 10
+		x = 1
+		y = 1
+		relative_position_id = HUN_hold_party_congress
+		
+		mutually_exclusive = {
+			focus = HUN_prepare_for_civil_war
+		}
+
+		available = {
+			NOT = {
+				has_country_flag = anarchist_plans
+			}
+		}
+		
+		prerequisite = {
+			focus = HUN_hold_party_congress
+		}
+
+		completion_reward = {
+			add_ideas = HUN_seeds_of_the_revolution
 		}
 	}
 
@@ -225,6 +256,11 @@ focus_tree = {
 
 		completion_reward = {
 			add_ideas = HUN_industry_reforms_idea
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = industry
+			}
 		}
 	}
 
@@ -240,6 +276,11 @@ focus_tree = {
 			focus = HUN_industry_reforms
 		}
 		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = construction_tech
+			}
 			swap_ideas = {
 				remove_idea = HUN_industry_reforms_idea
 				add_idea = HUN_construction_boost_idea
