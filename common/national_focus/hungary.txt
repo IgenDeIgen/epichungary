@@ -10,6 +10,11 @@ focus_tree = {
 		}
 	}
 
+	continuous_focus_position = {
+		x = 0
+		y = 1500
+	}
+
 	default = no
 
 	#########################################
@@ -97,7 +102,7 @@ focus_tree = {
 	focus = {
 		id = HUN_hold_party_congress
 		icon = GFX_focus_generic_soviet_politics
-		cost = 10
+		cost = 5
 		x = 0
 		y = 1
 		relative_position_id = HUN_disempower_the_hungarists
@@ -136,6 +141,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_stability = -0.2
+			add_war_support = 0.2
 			swap_ideas = {
 				remove_idea = HUN_political_dispute
 				add_idea = HUN_political_dispute_2
@@ -167,29 +173,24 @@ focus_tree = {
 	}
 
 	focus = {
-		id = HUN_plant_the_seeds_of_the_revolution
-		icon = GFX_focus_generic_join_comintern
+		id = HUN_rebuild_the_country
+		icon = GFX_focus_generic_self_management
 		cost = 10
-		x = 1
+		x = 0
 		y = 1
-		relative_position_id = HUN_hold_party_congress
+		relative_position_id = HUN_wake_the_workers
 		
-		mutually_exclusive = {
-			focus = HUN_prepare_for_civil_war
+		prerequisite = {
+			focus = HUN_wake_the_workers
 		}
 
 		available = {
-			NOT = {
-				has_country_flag = anarchist_plans
-			}
-		}
-		
-		prerequisite = {
-			focus = HUN_hold_party_congress
+			has_government = communism
+			has_war = no
 		}
 
 		completion_reward = {
-			add_ideas = HUN_seeds_of_the_revolution
+			#	effekt kell
 		}
 	}
 
@@ -219,6 +220,72 @@ focus_tree = {
 			add_ideas = HUN_seeds_of_the_revolution
 		}
 	}
+
+	focus = {
+		id = HUN_anarchy_is_the_way
+		icon = GFX_focus_spr_anarchism_knows_no_borders
+		cost = 10
+		x = -2
+		y = 4
+		relative_position_id = HUN_hold_party_congress
+		
+		prerequisite = {
+			focus = HUN_rebuild_the_country
+		}
+
+		mutually_exclusive = {
+			focus = HUN_admire_stalin
+		}
+
+		completion_reward = {
+			#	effekt kell
+		}
+	}
+
+	focus = {
+		id = HUN_admire_stalin
+		icon = GFX_focus_fra_loyalty_stalin
+		cost = 10
+		x = 0
+		y = 4
+		relative_position_id = HUN_hold_party_congress
+		
+		prerequisite = {
+			focus = HUN_rebuild_the_country
+			focus = HUN_plant_the_seeds_of_the_revolution
+		}
+
+		mutually_exclusive = {
+			focus = HUN_anarchy_is_the_way
+			focus = HUN_socialist_approach
+		}
+
+		completion_reward = {
+			#	effekt kell
+		}
+	}
+
+	focus = {
+		id = HUN_socialist_approach
+		icon = GFX_focus_prc_agrarian_socialism
+		cost = 10
+		x = 2
+		y = 4
+		relative_position_id = HUN_hold_party_congress
+
+		prerequisite = {
+			focus = HUN_plant_the_seeds_of_the_revolution
+		}
+
+		mutually_exclusive = {
+			focus = HUN_admire_stalin
+		}
+
+		completion_reward = {
+			#	effekt kell
+		}
+	}
+
 
 	#	Fascist tree
 
